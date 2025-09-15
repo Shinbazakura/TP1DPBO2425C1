@@ -18,6 +18,11 @@ jobs:
           distribution: temurin
           java-version: '17'
 
+      - name: Show folder contents
+        working-directory: "./Folder Java"
+        run: ls -l
+
+
       # ✅ Set working directory instead of using cd
       - name: Build
         working-directory: "./Folder Java"
