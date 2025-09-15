@@ -38,5 +38,5 @@ jobs:
       - name: Upload test output
         uses: actions/upload-artifact@v4
         with:
-          name: java-test-output       # this is the artifact name
-          path: output.txt             # path to the file you want
+            name: java-test-output
+            path: Folder Java/output.txt   # <-- note the folder prefix
