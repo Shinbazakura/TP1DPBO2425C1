@@ -1,5 +1,3 @@
-import java.util.*;
-
 public class Barang {
     private int id;
     private String nama;
