@@ -9,26 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repository
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 2️⃣ Set up JDK (Java 17 or later)
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      # 3️⃣ Compile sources inside the "Folder Java" folder
+      # ✅ Set working directory instead of using cd
       - name: Build
-        run: |
-          cd "Folder Java"
-          javac Main.java Barang.java
+        working-directory: "./Folder Java"
+        run: javac Main.java Barang.java
 
-      # 4️⃣ Run automated test
       - name: Run test
+        working-directory: "./Folder Java"
         run: |
-          cd "Folder Java"
           java Main < tests/input.txt > output.txt
           diff -u tests/expected.txt output.txt
