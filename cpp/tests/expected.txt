@@ -1,3 +1,4 @@
+
 Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
 1. Tampilkan Semua data.
 2. Menambahkan Data.
