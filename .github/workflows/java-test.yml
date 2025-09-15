@@ -35,7 +35,8 @@ jobs:
           diff -u tests/expected.txt output.txt
         
         # 5️⃣ Upload output.txt so we can download it
-      - name: Upload test output
+      - name: Upload test 
+        if: always()                     
         uses: actions/upload-artifact@v4
         with:
             name: java-test-output
