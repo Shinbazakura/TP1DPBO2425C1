@@ -1,0 +1,134 @@
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+ID : 1
+Nama : LCD Display
+Kategori : Display
+No Part : 11AA43FD
+Manufaktur : Hitachi
+Harga : 1000000
+
+ID : 2
+Nama : Oled Display
+Kategori : Display
+No Part : 21BC23GD
+Manufaktur : Samsung
+Harga : 2000000
+
+ID : 3
+Nama : Keyboard US
+Kategori : Keyboard
+No Part : 32BB53US
+Manufaktur : Delta
+Harga : 150000
+
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+Masukan ID : Masukan Nama : Masukan No Part: Masukan Manufaktur : Masukan Harga : Data berhasil terinput.
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+Masukan ID yang akan dihapus: ID berhasil dihapus.
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+Masukan ID yang akan dihapus: ID tidak ditemukan.
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+Masukan ID yang akan diupdate : Masukan Nama baru (kosong = tetap): Masukan Kategori baru (kosong = tetap): Masukan No Part baru (kosong = tetap): Masukan Manufaktur baru (kosong = tetap): Masukan Harga baru (0 = tetap): Data berhasil diupdate.
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+ID : 2
+Nama : Oled Display
+Kategori : Display
+No Part : 21BC23GD
+Manufaktur : Samsung
+Harga : 2000000
+
+ID : 3
+Nama : Keyboard US
+Kategori : Keyboard
+No Part : 32BB53US
+Manufaktur : Delta
+Harga : 150000
+
+ID : 4
+Nama : Keyboard Japan
+Kategori : 
+No Part : 32BB53JP
+Manufaktur : Delta
+Harga : 250000
+
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+Masukan ID yang akan dicari: Data ditemukan.
+ID : 4
+Nama : Keyboard Japan
+Kategori : 
+No Part : 32BB53JP
+Manufaktur : Delta
+Harga : 250000
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+
+Masukan ID yang akan dicari: ID tidak ditemukan.
+
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+1. Tampilkan Semua data.
+2. Menambahkan Data.
+3. Update Data.
+4. Hapus Data.
+5. Cari Data
+6. Akhiri Program
+

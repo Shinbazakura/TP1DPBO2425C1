@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <limits>
 #include "Barang.cpp"
 
 void printBarang(Barang input);
@@ -32,7 +33,7 @@ int main()
 
     // input data dengan parameter
     Barang oledDisplay(2, "Oled Display", "Display", "21BC23GD", "Samsung", 2'000'000);
-    Barang keyboard_US(3, "Keyboard US", "Keyboard", "32BB53WI", "Delta", 150'000);
+    Barang keyboard_US(3, "Keyboard US", "Keyboard", "32BB53US", "Delta", 150'000);
     
     // input data static kedalam array/vector
     listBarang.push_back(lcdDisplay);
@@ -48,6 +49,12 @@ int main()
     std::string manufaktur_temp{};
     int harga_temp{};
     Barang barang_temp{};
+
+    // variable used on case 5 and 6
+    // find out why cant create new var on switch case
+    // prob because switch compile to goto when compiled ?
+    bool found = false;
+    int index = -1;
     
     // var for selecting menu
     int menuSelector = 0;
@@ -58,6 +65,7 @@ int main()
     //main loop for program
     while (menuSelector != 6)
     {
+        std::cout << std::endl;
         printMenu();
         std::cin >> menuSelector;
 
@@ -72,18 +80,27 @@ int main()
             }
             break;
         case 2:
+            // note to self
+            // while i know that cin insert new line charater to buffer, when string the newline char left on buffer
+            // so when inputed for int after string, the int get newline char not the intended input.
+            // Search best pratice for input string and number together.
+
             // ask user input for new data
             std::cout << "Masukan ID : ";
             std::cin >> id_temp;
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // clear newline
 
             std::cout << "Masukan Nama : ";
-            std::cin >> nama_temp;
+            // std::cin >> nama_temp;
+            std::getline(std::cin, nama_temp);
 
             std::cout << "Masukan No Part: ";
-            std::cin >> no_part_temp;
+            // std::cin >> no_part_temp;
+            std::getline(std::cin, no_part_temp);
 
             std::cout << "Masukan Manufaktur : ";
-            std::cin >> manufaktur_temp;
+            // std::cin >> manufaktur_temp;
+            std::getline(std::cin, manufaktur_temp);
 
             std::cout << "Masukan Harga : ";
             std::cin >> harga_temp;
@@ -98,42 +115,71 @@ int main()
             // insert into vector
             listBarang.push_back(barang_temp);
 
-            std::cout << "Data berhasil terinput.";
+            std::cout << "Data berhasil terinput." << std::endl;
             break;
         case 3:
-            std::cout << "Masukan ID yang akan diupdate";
-            bool found = false;
+            std::cout << "Masukan ID yang akan diupdate : ";
+            std::cin >> id_temp;
+            
             // using &b so it modifyng the original object not a copy of it
             for (Barang &b : listBarang)
             {
                 if (b.getId() == id_temp)
                 {
                     found = true;
+
+                    // empty cin buffer
+                    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+                    // std::cout << "Masukan Nama baru (kosong = tetap): ";
+                    // std::cin >> nama_temp;
+                    // if (!nama_temp.empty()) b.setNama(nama_temp);
+
+                    // std::cout << "Masukan Kategori baru (kosong = tetap): ";
+                    // std::cin >> kategori_temp;
+                    // if (!kategori_temp.empty()) b.setKategori(kategori_temp);
+
+                    // std::cout << "Masukan No Part baru (kosong = tetap): ";
+                    // std::cin >> no_part_temp;
+                    // if (!no_part_temp.empty()) b.setNoPart(no_part_temp);
+
+                    // std::cout << "Masukan Manufaktur baru (kosong = tetap): ";
+                    // std::cin >> manufaktur_temp;
+                    // if (!manufaktur_temp.empty()) b.setManufaktur(manufaktur_temp);
+
+                    // std::cout << "Masukan Harga baru (0 = tetap): ";
+                    // std::cin >> harga_temp;
+                    // if (harga_temp != 0) b.setHarga(harga_temp);
+
                     std::cout << "Masukan Nama baru (kosong = tetap): ";
-                    std::cin >> nama_temp;
+                    std::getline(std::cin, nama_temp);
                     if (!nama_temp.empty()) b.setNama(nama_temp);
 
                     std::cout << "Masukan Kategori baru (kosong = tetap): ";
-                    std::cin >> kategori_temp;
+                    std::getline(std::cin, kategori_temp);
                     if (!kategori_temp.empty()) b.setKategori(kategori_temp);
 
                     std::cout << "Masukan No Part baru (kosong = tetap): ";
-                    std::cin >> no_part_temp;
+                    std::getline(std::cin, no_part_temp);
                     if (!no_part_temp.empty()) b.setNoPart(no_part_temp);
 
                     std::cout << "Masukan Manufaktur baru (kosong = tetap): ";
-                    std::cin >> manufaktur_temp;
+                    std::getline(std::cin, manufaktur_temp);
                     if (!manufaktur_temp.empty()) b.setManufaktur(manufaktur_temp);
 
                     std::cout << "Masukan Harga baru (0 = tetap): ";
-                    std::cin >> harga_temp;
-                    if (harga_temp != 0) b.setHarga(harga_temp);
+                    std::string harga_line;
+                    std::getline(std::cin, harga_line);
+                    if (!harga_line.empty()) {
+                        harga_temp = std::stoi(harga_line);
+                        if (harga_temp != 0) b.setHarga(harga_temp);
+                    }
 
                     std::cout << "Data berhasil diupdate.\n";
                     break;
                 }
-                if (!found) std::cout << "ID tidak ditemukan.\n";
             }
+            if (!found) std::cout << "ID tidak ditemukan.\n";
             break;
         case 4: // Hapus Data
         {
@@ -152,17 +198,17 @@ int main()
             if (index != -1)
             {
                 listBarang.erase(listBarang.begin() + index);
+                std::cout << "ID berhasil dihapus." << std::endl;
             }
             else
             {
-                std::cout << "ID tidak ditemukan.\n";
+                std::cout << "ID tidak ditemukan." << std::endl;
             }
             break;
         }
         case 5:
             std::cout << "Masukan ID yang akan dicari: ";
             std::cin >> id_temp;
-            int index = -1;
 
             for (int i = 0; i < listBarang.size(); i++)
             {
@@ -174,18 +220,19 @@ int main()
 
             if (index != -1)
             {
-                std::cout << "Data ditemukan.";
+                std::cout << "Data ditemukan." << std::endl;
                 printBarang(listBarang[index]);
+                index = -1;
             }
             else
             {
-                std::cout << "ID tidak ditemukan.\n";
+                std::cout << "ID tidak ditemukan." << std::endl;
             }
             break;
         case 6:
             break;
         default:
-            std::cout << "Angka Invalid";
+            std::cout << "Angka Invalid"  << std::endl;
             break;
         }
     }
@@ -219,4 +266,5 @@ void printMenu()
     std::cout << "4. Hapus Data." << std::endl;
     std::cout << "5. Cari Data" << std::endl;
     std::cout << "6. Akhiri Program" << std::endl;
+    std::cout << std::endl;
 }

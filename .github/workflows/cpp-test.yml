@@ -1,0 +1,28 @@
+name: C++ Build & Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout the repository
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 2️⃣ Install g++
+      - name: Install g++
+        run: sudo apt-get update && sudo apt-get install -y g++
+
+      # 3️⃣ Compile sources inside the cpp/ folder
+      - name: Build
+        run: g++ -std=c++17 cpp/main.cpp cpp/Barang.cpp -o cpp/app
+
+      # 4️⃣ Run automated test
+      - name: Run test
+        run: |
+          ./cpp/app < cpp/tests/input.txt > cpp/output.txt
+          diff -u cpp/tests/expected.txt cpp/output.txt
