@@ -1,4 +1,4 @@
-[H[2JPilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
+Pilih operasi yang akan dilakukan dengan mengetik no pilihan anda.
 1. Tampilkan Semua data.
 2. Menambahkan Data.
 3. Update Data.
