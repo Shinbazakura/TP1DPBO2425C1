@@ -33,3 +33,10 @@ jobs:
         run: |
           java Main < tests/input.txt > output.txt
           diff -u tests/expected.txt output.txt
+        
+        # 5️⃣ Upload output.txt so we can download it
+      - name: Upload test output
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-test-output       # this is the artifact name
+          path: output.txt             # path to the file you want
