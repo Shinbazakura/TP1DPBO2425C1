@@ -46,8 +46,10 @@ public class Main {
         int menuSelector = 0;
 
         clearScreen();
-
+        boolean first = true;
         while (menuSelector != 6) {
+            if (!first) System.out.println();
+            first = false;
             System.out.println();
             printMenu();
             while (!sc.hasNextInt()) { sc.nextLine(); }
