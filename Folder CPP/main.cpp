@@ -176,6 +176,8 @@ int main()
                     }
 
                     std::cout << "Data berhasil diupdate.\n";
+
+                    found = false;
                     break;
                 }
             }

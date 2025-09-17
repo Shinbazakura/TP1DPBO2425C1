@@ -88,6 +88,18 @@ if ($action === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 
+$searchResults = $listBarang; // default: all items
+
+if (isset($_GET['search']) && $_GET['search'] !== '') {
+    $keyword = $_GET['search'];
+    $searchResults = array_filter($listBarang, function($b) use ($keyword) {
+        return str_contains((string)$b->getId(), $keyword) || 
+               str_contains(strtolower($b->getNama()), strtolower($keyword));
+    });
+}
+// If search is empty, $searchResults remains $listBarang (all items)
+
+
 if ($action === 'delete') {
     $idx = findIndexById((int)$_GET['id'], $listBarang);
     if ($idx != -1) array_splice($listBarang, $idx, 1);
@@ -101,6 +113,13 @@ if ($action === 'delete') {
 <body>
 <h1>Menu Barang</h1>
 
+<h2>Cari Barang</h2>
+<form method="get" action="index.php">
+    <input type="text" name="search" placeholder="ID atau Nama">
+    <button type="submit">Cari</button>
+</form>
+<p>Kosongkan bila ingin menapilkan semua item.</p>
+
 <!-- Show All -->
 <h2>Daftar Barang</h2>
 <table border="1" cellpadding="5">
@@ -108,7 +127,7 @@ if ($action === 'delete') {
   <th>ID</th><th>Nama</th><th>Kategori</th><th>No Part</th>
   <th>Manufaktur</th><th>Harga</th><th>Image</th><th>Aksi</th>
 </tr>
-<?php foreach ($listBarang as $b): ?>
+<!-- <?php foreach ($listBarang as $b): ?>
 <tr>
   <td><?= $b->getId() ?></td>
   <td><?= htmlspecialchars($b->getNama()) ?></td>
@@ -124,7 +143,24 @@ if ($action === 'delete') {
      <a href="?action=delete&id=<?= $b->getId() ?>" onclick="return confirm('Hapus?')">Hapus</a>
   </td>
 </tr>
+<?php endforeach; ?> -->
+
+<?php foreach ($searchResults as $b): ?>
+<tr>
+  <td><?= $b->getId() ?></td>
+  <td><?= htmlspecialchars($b->getNama()) ?></td>
+  <td><?= htmlspecialchars($b->getKategori()) ?></td>
+  <td><?= htmlspecialchars($b->getNoPart()) ?></td>
+  <td><?= htmlspecialchars($b->getManufaktur()) ?></td>
+  <td><?= $b->getHarga() ?></td>
+  <td><?php if ($b->getImage()) echo "<img src='images/".htmlspecialchars($b->getImage())."' width='60'>"; ?></td>
+  <td>
+     <a href="?action=edit&id=<?= $b->getId() ?>">Edit</a> |
+     <a href="?action=delete&id=<?= $b->getId() ?>" onclick="return confirm('Hapus?')">Hapus</a>
+  </td>
+</tr>
 <?php endforeach; ?>
+
 </table>
 
 <hr>
@@ -168,5 +204,7 @@ if ($action === 'edit') {
     }
 }
 ?>
+<hr>
+<a href="reset.php">Reset Session</a>
 </body>
 </html>
