@@ -69,7 +69,7 @@ if ($action === 'update' && $_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['manufaktur'])) $b->setManufaktur($_POST['manufaktur']);
         if (!empty($_POST['harga'])) $b->setHarga((int)$_POST['harga']);
 
-        // ✅ Only update image if user selected a new file
+        // Only update image if user selected a new file
         if (isset($_FILES['image_file']) 
             && $_FILES['image_file']['error'] === UPLOAD_ERR_OK 
             && !empty($_FILES['image_file']['name'])) {
