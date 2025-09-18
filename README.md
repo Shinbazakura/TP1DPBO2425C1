@@ -3,17 +3,18 @@
 Saya Muhammad Attala Rafikasya dengan NIM 2403310 mengerjakan Tugas Praktikum 1 dalam mata kuliah Desain Pemrograman Berbasis Objek untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan.
 
 ## Desain Program
-Toko Elektronik Part Laptop
+Toko Elektronik Part Laptop  
+Program ini adalah program manajemen barang sederhana yang memiliki fitur CRUD.
 
 kelas Barang
 Atribut Private :
-- id
-- nama
-- kategori
-- no_part
-- manufaktur
-- harga
-- foto (Hanya php)
+- id : ID unik dalam program.
+- nama : Nama produk.
+- kategori : Kategori barang.
+- no_part : No part .
+- manufaktur : Manufaktur Barang.
+- harga : Harga jual barang.
+- foto (Hanya php) : Gambar dari produk.
 
 Method :
 - Get Set untuk semua private atribut
@@ -36,11 +37,46 @@ Jika user memilih 3, maka program akan meminta input kepada user untuk id yang a
 ![Masukan Id yang akan dirubah](Dokumentasi/004.png)
 
 - Jika data ditemukan  
-Maka user akan diminta memasukan input untuk setiap atribut Barang. Jika atribut tidak ingin dirubah cukup kosongkan input lalu klik enter, jika berupa int seperti harga maka cukup di beri 0.
+Maka user akan diminta memasukan input untuk setiap atribut Barang. Jika atribut tidak ingin dirubah cukup kosongkan input lalu klik enter, jika berupa int seperti harga maka cukup di beri 0.  
 ![Jika data ditemukan](Dokumentasi/005.png)
 
-- Jika data tidak ditemukan
-Maka akan ada pemberitahuan bahwa id yang dicari tidak ada.
+- Jika data tidak ditemukan  
+Maka akan ada pemberitahuan bahwa id yang dicari tidak ada.  
 ![Jika data tidak ditemukan](Dokumentasi/006.png)
 
 ### 4. Hapus Data
+Jika user memilih 4, maka program akan meminta input kepada user untuk id yang akan dihapus.  
+![Masukan id yang ingin dihapus](Dokumentasi/007.png)
+
+- Jika data ditemukan  
+Maka data akan di hapus dari list barang.  
+![Jika data ditemukan](Dokumentasi/008.png)
+
+- Jika data tidak ditemukan  
+Maka akan ada pemberitahuan bahwa id yang akan dihapus tidak ada.  
+![Jika data tidak ditemukan](Dokumentasi/009.png)
+
+### 5. Cari Data
+Jika user memilih 5, maka program akan meminta input kepada user untuk id yang akan di cari.  
+![Masukan ID yang akan dicari](Dokumentasi/010.png)
+
+- Jika data ditemukan  
+Maka data akan ditampilkan kepada user  
+![Jika data ditemukan](Dokumentasi/011.png)
+
+- Jika data tidak ditemukan  
+Maka akan ada pemberitahuan bahwa id yang dicari tidak ditemukan.  
+![Jika data tidak ditemukan](Dokumentasi/012.png)
+
+### 6. Akhiri Program
+Jika user memilih 6, maka program akan berhenti berjalan.  
+![Akhiri Program](Dokumentasi/013.png)
+
+## Dokumentasi
+### Dokumentasi C++
+
+### Dokumentasi Java
+
+### Dokumentasi Python
+
+### Dokumentasi PHP
