@@ -196,7 +196,7 @@ if ($action === 'edit') {
             No Part: <input type="text" name="no_part" value="<?= htmlspecialchars($b->getNoPart()) ?>" required><br>
             Manufaktur: <input type="text" name="manufaktur" value="<?= htmlspecialchars($b->getManufaktur()) ?>" required><br>
             Harga: <input type="number" name="harga" value="<?= $b->getHarga() ?>" required><br>
-            Replace Image: <input type="file" name="image_file" accept="image/*" required><br>
+            Replace Image: <input type="file" name="image_file" accept="image/*"><br>
 
             <button type="submit">Update</button>
         </form>

@@ -74,9 +74,24 @@ Jika user memilih 6, maka program akan berhenti berjalan.
 
 ## Dokumentasi
 ### Dokumentasi C++
+![Dokumentasi C++](Dokumentasi/014.png)
 
 ### Dokumentasi Java
+![Dokumentasi Java](Dokumentasi/015.png)
 
 ### Dokumentasi Python
+![Dokumentasi Python](Dokumentasi/016.png)
 
 ### Dokumentasi PHP
+#### Read  
+![Read PHP](Dokumentasi/017.png)
+#### Add  
+![Add PHP 1](Dokumentasi/018.png)  
+![Add PHP 2](Dokumentasi/019.png)
+#### Edit
+![Edit PHP 1](Dokumentasi/020.png)
+![Edit PHP 2](Dokumentasi/021.png)
+#### Hapus
+![Hapus PHP 1](Dokumentasi/022.png)
+![Hapus PHP 2](Dokumentasi/023.png)
+![Hapus PHP 3](Dokumentasi/024.png)
